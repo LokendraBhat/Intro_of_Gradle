@@ -22,17 +22,35 @@ gradle -v
 ```bash
 gradle init --type java-application
 ``` 
+and answer the questions asked by the command line
 
 2. To see the list of tasks available to run, go to the project folder and run the following command
     ```bash
     gradle tasks
     ```
+update the build.gradle file to add the dependencies needed for the project for example the main class menifest file as follows
+```bash
+jar {
+    manifest {
+        attributes 'Main-Class': '<your_package_name>.<your_main_class_name>'
+    }
+}
+```
+also for testing add the following dependencies
+```bash
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+```
 
 3. To build the project run the following command
 
 ```bash
 gradle build
 ```
+
+You can find the jar file in the build/libs folder
+and the test report in the build/reports/index.html file that you can check to see if the tests are passed or not
 
 4. To run the project run the following command
 
